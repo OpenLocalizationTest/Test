@@ -1,0 +1,652 @@
+{
+    "AADClientId": "<KeyVaultConfiguration:AADClientId:KeyVaultConfiguration>",
+    "AADClientScopes": [
+        "openid",
+        "offline_access",
+        "profile"
+    ],
+    "AADClientSecret": "<KeyVaultConfiguration:AADClientSecret:KeyVaultConfiguration>",
+    "AADClientTenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+    "AbortWhenBuildToolReportsErrorLogs": true,
+    "AccessTokenSecret": "<SecretAmbientConfiguration:O3oRnwVXDDLSXiC06GtTYg==:SecretAmbientConfiguration>",
+    "AllowSimultaneousSyncFromBothDirections": true,
+    "AllowUseDynamicRendering": true,
+    "AzureLocalizedRepositoryUrlFormat": "(?i)(https://(.*)?github\\.com/Microsoft/azure-docs-pr\\.(.+\\-.+)(\\.git)?)|(https://(.*)?github\\.com/wacn/mc-docs-pr\\.(.+\\-.+)(\\.git)?)",
+    "BatchPublishToDHSParallelism": 2,
+    "BranchesForDependencyCreation": [
+        "live",
+        "master"
+    ],
+    "BranchesToFilterForPublish": [
+        "live-oldev",
+        "master-oldev",
+        "live-sync-work",
+        "master-sync-work",
+        "live-sxs-oldev",
+        "master-sxs-oldev"
+    ],
+    "BuildActionQueueMapper": {
+        "Build": "build",
+        "Publish": "publish",
+        "Workflow": "workflow",
+        "Delete": "delete",
+        "Sync": "sync",
+        "Provision": "provision"
+    },
+    "BuildPullRequestAgainstTargetBranchWithCommitIdInCachePackage": true,
+    "BuildPullRequestUsingTemplateWithCommitIdInCachePackage": true,
+    "BuildServiceEndpoint": "https://op-build-internal.azurewebsites.net",
+    "BuildToolTimeOutInSeconds": 6000,
+    "BuildWorkers": {
+        "WorkflowWorker_1": {
+            "QueueName": "workflow",
+            "ThreadCount": 8,
+            "ThreadCountByPriority": {
+                "Default": 8,
+                "Low": 0
+            }
+        },
+        "DeleteWorker_1": {
+            "QueueName": "delete",
+            "ThreadCount": 2,
+            "ThreadCountByPriority": {
+                "Default": 2,
+                "Low": 0
+            }
+        },
+        "ProvisionWorker_1": {
+            "QueueName": "provision",
+            "ThreadCount": 4,
+            "ThreadCountByPriority": {
+                "Default": 4,
+                "Low": 0
+            }
+        },
+        "CreateRepoWorker_1": {
+            "QueueName": "create-repo",
+            "ThreadCount": 2,
+            "ThreadCountByPriority": {
+                "Default": 2,
+                "Low": 0
+            }
+        },
+        "UpdateRepoWorker_1": {
+            "QueueName": "update-repo",
+            "ThreadCount": 2,
+            "ThreadCountByPriority": {
+                "Default": 2,
+                "Low": 0
+            }
+        },
+        "CreateDocsetsWorker_1": {
+            "QueueName": "create-docsets",
+            "ThreadCount": 2,
+            "ThreadCountByPriority": {
+                "Default": 2,
+                "Low": 0
+            }
+        },
+        "UpdateDocsetsWorker_1": {
+            "QueueName": "update-docsets",
+            "ThreadCount": 2,
+            "ThreadCountByPriority": {
+                "Default": 2,
+                "Low": 0
+            }
+        },
+        "SharedWorker_1": {
+            "QueueNames": [ "publish", "build", "sync", "pdf" ],
+            "ThreadCount": 1,
+            "ThreadCountByPriority": {
+                "Default": 1,
+                "Low": 0
+            }
+        }
+    },
+    "CacheFactory": {
+        "CacheType": "Redis",
+        "ConnectionString": "<KeyVaultConfiguration:RedisConnectionString:KeyVaultConfiguration>",
+        "ExpireInSeconds": 86400
+    },
+    "CacheProvider": {
+        "aadauthentication": {
+            "CacheType": "Redis",
+            "ConnectionString": "<KeyVaultConfiguration:WebsiteRedisConnectionString:KeyVaultConfiguration>",
+            "ExpireInSeconds": 300
+        },
+        "authentication": {
+            "CacheType": "Redis",
+            "ConnectionString": "<KeyVaultConfiguration:WebsiteRedisConnectionString:KeyVaultConfiguration>",
+            "ExpireInSeconds": 86400
+        },
+        "gitrepositories": {
+            "CacheType": "Redis",
+            "ConnectionString": "<KeyVaultConfiguration:WebsiteRedisConnectionString:KeyVaultConfiguration>",
+            "ExpireInSeconds": 300
+        },
+        "gitrepository": {
+            "CacheType": "Redis",
+            "ConnectionString": "<KeyVaultConfiguration:WebsiteRedisConnectionString:KeyVaultConfiguration>",
+            "ExpireInSeconds": 60
+        },
+        "oprepositorytableentity": {
+          "CacheType": "Redis",
+          "ConnectionString": "<KeyVaultConfiguration:WebsiteRedisConnectionString:KeyVaultConfiguration>",
+          "ExpireInSeconds": 1800
+        },
+        "packageversion": {
+            "CacheType": "Memory",
+            "ConnectionString": "",
+            "ExpireInSeconds": 3600
+        },
+        "publisheddocuments": {
+            "CacheType": "Redis",
+            "ConnectionString": "<KeyVaultConfiguration:RedisConnectionString:KeyVaultConfiguration>",
+            "ExpireInSeconds": 2592000
+        },
+        "useraadinformation": {
+            "CacheType": "Redis",
+            "ConnectionString": "<KeyVaultConfiguration:WebsiteRedisConnectionString:KeyVaultConfiguration>",
+            "ExpireInSeconds": 172800
+        }
+    },
+    "CacheTemplateRepositories": true,
+    "CatsInformation": {
+        "create_run_priorities": [ 0 ],
+        "create_run_wait_minutes": 10,
+        "is_send_mail": false,
+        "run_type": "contentvalidation",
+        "service_namespace": "catsapitest"
+    },
+    "CheckFileExistenceInNormalize": false,
+    "CloneWithGitExe":  true,
+    "CloudServiceMaxConnectionLimit": 96,
+    "ContinueWithDocumentError": false,
+    "CopyFileFromFallbackFolders": true,
+    "CopyFileSearchPatternForGeneratePdf": [ "*.jpg", "*.png", "*.svg" ],
+    "CreateRepositoryToSpecialOrgAdminUserId": "92a98ace-6662-e7e6-48fd-968a6ad6ac00",
+    "CreateRepositoryToSpecialOrgApprovalType": "SmallLibrariesToolsSamples",
+    "CreateRepositoryToSpecialOrgAuthorization": "<SecretAmbientConfiguration:Muv7nusafj1bxEDUawVHYEnugTkpfRFYtWVlq4DGd2ZkNd3YkKxYzm6qfdrfv858bicvAN8Enp8kJWvOPg8Cng==:SecretAmbientConfiguration>",
+    "CreateRepositoryToSpecialOrgDefaultAdminPermissionTeamIds": [ "2182456" ],
+    "CreateRepositoryToSpecialOrgDefaultReadPermissionTeamIds": [ "2182466", "2230436" ],
+    "CreateRepositoryToSpecialOrgDefaultWritePermissionTeamIds": [ "2244128" ],
+    "CreateRepositoryToSpecialOrgUrl": "https://repos.opensource.microsoft.com/api/MicrosoftDocs/repos?api-version=2016-12-01",
+    "DefaultBuildToolLogLevel": "Verbose",
+    "DefaultBuildToolParallelism": 0,
+    "DefaultErrorLogCodes": [ "InvalidInclude", "InvalidCodeSnippet" ],
+    "DefaultWarningLogCodes": [ ],
+    "DefaultInfoLogCodes": [ ],
+    "DefaultIntellisenseErrorLogCodes": [ ],
+    "DefaultIntellisenseWarningLogCodes": [ ],
+    "DefaultIntellisenseInfoLogCodes": [ "DuplicateUids"],
+    "DefaultLogCodesToIgnore": [
+        "InvalidInternalBookmark",
+        "InvalidInlineCodeSnippet"
+    ],
+    "DefaultReportMessageSeverity": "Info",
+    "DeleteObsoleteDocumentsInDHS": true,
+    "DeltaBackoff": 10,
+    "DependencyBranchTriggerMapper": {
+        "live": false,
+        "master": false
+    },
+    "DependencyTypesForSignificantUpdate": [ "include" ],
+    "DependentRepositories": {
+        "Docs": [{
+            "Name": "Docs.Theme",
+            "DefaultBranch": "master",
+            "DefaultTemplateUrl": "https://github.com/Microsoft/templates.docs.msft",
+            "LocalizedTemplateFormat": "https://github.com/Microsoft/templates.docs.msft.{0}",
+            "DefaultPathToRoot": "_themes"
+        }],
+        "MSDN.Modern": [{
+            "Name": "MSDN.Modern.Theme",
+            "DefaultBranch": "master",
+            "DefaultTemplateUrl": "https://github.com/Microsoft/templates.msdn.msft",
+            "LocalizedTemplateFormat": "https://github.com/Microsoft/templates.msdn.msft.{0}",
+            "DefaultPathToRoot": "_themes.MSDN.Modern"
+        },{
+            "Name": "PartnerCenter",
+            "DefaultBranch": "master",
+            "DefaultTemplateUrl": "https://github.com/Microsoft/templates.msdn.partnercenter",
+            "LocalizedTemplateFormat": "https://github.com/Microsoft/templates.msdn.partnercenter.{0}",
+            "DefaultPathToRoot": "_themes.MSDN.PartnerCenter"
+        }],
+        "VS.Modern": [{
+            "Name": "VS.Modern.Theme",
+            "DefaultBranch": "master",
+            "DefaultTemplateUrl": "https://github.com/Microsoft/templates.vs.com",
+            "LocalizedTemplateFormat": "https://github.com/Microsoft/templates.vs.com.{0}",
+            "DefaultPathToRoot": "_themes.VS.Modern"
+        },{
+            "Name": "VSCOMUHF",
+            "DefaultBranch": "master",
+            "DefaultTemplateUrl": "https://github.com/Microsoft/templates.vs.com.vscomuhf",
+            "LocalizedTemplateFormat": "https://github.com/Microsoft/templates.vs.com.vscomuhf.{0}",
+            "DefaultPathToRoot": "_themes.VS.UHF"
+        }],
+        "TechNet.Modern": [{
+            "Name": "TechNet.Modern.Theme",
+            "DefaultBranch": "master",
+            "DefaultTemplateUrl": "https://github.com/Microsoft/templates.technet.msft",
+            "LocalizedTemplateFormat": "https://github.com/Microsoft/templates.technet.msft.{0}",
+            "DefaultPathToRoot": "_themes.TechNet.Modern"
+        }],
+        "OPS": [{
+            "Name": "OPS.Theme",
+            "DefaultBranch": "master",
+            "DefaultTemplateUrl": "https://github.com/Microsoft/templates.starterkit",
+            "LocalizedTemplateFormat": "https://github.com/Microsoft/templates.starterkit",
+            "DefaultPathToRoot": "_themes.OPS"
+        }]
+    },
+    "DocumentDbAuthorizationKey": "<KeyVaultConfiguration:DocumentDbAuthorizationKey:KeyVaultConfiguration>",
+    "DocumentDbDefaultDatabaseId": "<KeyVaultConfiguration:DocumentDbDefaultDatabaseId:KeyVaultConfiguration>",
+    "DocumentDbDefaultOfferType": "Standard",
+    "DocumentDbEndpointUrl": "https://opbuildinternal.documents.azure.com:443/",
+    "DocumentDbThroughput": 10000,
+    "DocumentHostingServiceClientAccessKey": "<KeyVaultConfiguration:DocumentHostingServiceClientAccessKey:KeyVaultConfiguration>",
+    "DocumentHostingServiceClientName": "<KeyVaultConfiguration:DocumentHostingServiceClientName:KeyVaultConfiguration>",
+    "DocumentHostingServiceClientTimeOutInSeconds": 30,
+    "DocumentHostingServiceEndpointUrl": "https://op-dhs-sandbox-pub.azurewebsites.net",
+    "DownloadSourcePackage": false,
+    "DHSRetryIntervalsInSeconds": [10, 20],
+    "EmailServiceEndpoint": "https://outlook.office365.com/ews/exchange.asmx",
+    "EmailSvcUserAccount": "vscopbld@microsoft.com",
+    "EmailSvcUserPassword": "<KeyVaultConfiguration:EmailSvcUserPassword:KeyVaultConfiguration>",
+    "EnableBuildToolDebugModel": true,
+    "EnableFileMapAggregate": true,
+    "EnableFileMapGenerator": true,
+    "EnableGlobalGitUserProfileCacheExpiration": false,
+    "EnableIncrementalBuild": true,
+    "EnableIncrementalPostProcessing": true,
+    "EnableIncrementalPublishing": true,
+    "EnableMasterRedirectionFile": true,
+    "EnableMonikers": true,
+    "EnableMonikerRanges": true,
+    "EnableParallelDownloadPackageWithSyncGitSource": false,
+    "EnableParallelUploadPackageWithPublishToDHS": true,
+    "EnablePdfHeaderFooter": false,
+    "EnablePowerShellStepProgressUpdate": false,
+    "EnablePrimaryEmail": true,
+    "EnablePublishingExtraItems": true,
+    "EnablePublishingFallbackToTargetBranchForPullRequest": true,
+    "EnablePullRequestAggregation": true,
+    "EnablePushAggregation": true,
+    "EnableVsoPRComments": true,
+    "EnableXrefmapResolver": true,
+    "EnableFallbackPlugin": true,
+    "FetchSubmoduleInService": false,
+    "FileShareDownloadMaxDegreeOfParallelism": 8,
+    "FileShareUploadMaxDegreeOfParallelism": 16,
+    "FileTypesForSignificantUpdateNotification": [ "conceptual" ],
+    "GenerateDocumentId": true,
+    "GitCloneTimeoutInMilliseconds": 600000,
+    "GitCloneViaLocalTempFolder": false,
+    "GitFilesUploadingSleepTimeInSeconds": 1,
+    "GitHubClientId": "46397c576aeb0aa9e408",
+    "GitHubClientScopes": [
+      "repo",
+      "user:email"
+    ],
+    "GitHubClientSecret": "50ea12bb4ad44582ac314a2fd61b3f8f6dc45ffe",
+    "GitHubOpenPublishAdminTeamId": "1650156",
+    "GitHubOpenPublishMonikerAdminTeamId": "2348164",
+    "GitHubOpenPublishOrganizationName": "openpublish",
+    "GitHubOpenPublishShareBasePathAdminTeamId": "2348166",
+    "GitHubReadOnlyUserTeamId": "1880850",
+    "GitHubTemplateCloneToken": "<SecretAmbientConfiguration:f0+bvM5KXTLbLgaYsmBCD74vzqgyQOXfmHjb9BcMUeS4LbNVmLfszSF5gOliKJvG:SecretAmbientConfiguration>",
+    "GlobalGitUserProfileCacheExpirationTimeInMinutes": 0,
+    "HeartbeatUpdateMessageInProcessing": true,
+    "HeartbeatUpdateMessageInProcessingTableTimeOutInSeconds": 180,
+    "HeartbeatUpdateMessageIntervalInSeconds": 30,
+    "HeartbeatUpdateQueueMessageExtendInvisibleTimeInSeconds": 180,
+    "IgnoreRedirectDocumentId": false,
+    "IsServerBuild": true,
+    "KeyVaultClientId": "ae2bb9d7-4742-4400-af8b-56e870f60332",
+    "KeyVaultClientSecret": "YTOiZZfpUaKVKYKwAMDLi/d7SFhVSSgTQDC2haLuiR8=",
+    "KeyVaultUrl": "https://kv-op-build-internal.vault.azure.net",
+    "LocalFileMaxDegreeOfParallelism": 8,
+    "LocalStoragePathMappings": {
+        "wd": "W:",
+        "tmp": "T:"
+    },
+    "MaxBackoff": 50,
+    "MessageProcessingTimeOutInSeconds": 7200,
+    "MinBackoff": 10,
+    "MinimumLinesChangeForSignificantUpdate": 15,
+    "NeedGeneratePdfExternalLink": true,
+    "NeedPreviewPullRequest": false,
+    "NewtonsoftJsonSchemaLicense": "<KeyVaultConfiguration:NewtonsoftJsonSchemaLicense:KeyVaultConfiguration>",
+    "NonPublishedCopyFileSearchPattern": [ ],
+    "NormalizeContentInBuildTool": true,
+    "NuGetPackagesToCacheVersion": {
+        "opbuild.scripts": {
+            "latest": "https://www.myget.org/F/op/api/v2",
+            "latest-prerelease": "https://www.myget.org/F/op-test/api/v2"
+        },
+        "opbuild.templates.common": {
+            "latest": "https://www.myget.org/F/op/api/v2",
+            "latest-prerelease": "https://www.myget.org/F/op-test/api/v2"
+        }
+    },
+    "NuGetPackageVersionRefreshIntervalInSeconds": 300,
+    "OPSDocumentationHomepageUrl": "https://opsdocs.azurewebsites.net/en-us/opsdocs",
+    "OSSApiPrefix": "https://repos.opensource.microsoft.com",
+    "OSSUserProfileQueryAuthorization": "<KeyVaultConfiguration:OSSUserProfileQueryAuthorization:KeyVaultConfiguration>",
+    "PackageBlobDownloadTimeOutInSeconds": 3600,
+    "PackageBlobUploadTimeOutInSeconds": 3600,
+    "PackageCompressionLevel": "NoCompression",
+    "PackageCompressionLevelByPackageType": {
+      "Log": "Optimal",
+      "Output": "Optimal",
+      "Cache": "Optimal"
+    },
+    "PassedValidationPullRequestShouldHaveFewerWarningsThanTargetBranch": false,
+    "PdfBuildMessageProcessingTimeOutInSeconds": 21600,
+    "PdfBuildPowerShellScriptTimeOutInSeconds": 18000,
+    "PdfConvertParallelism": 4,
+    "PdfDownloadUrlPrefix": "",
+    "PerformanceScopePromoteTraceLevelThresholdInMilliseconds": 100,
+    "PortalEndpoint": "https://open-publishing-portal.azurewebsites.net",
+    "PowerShellMdprojTargets": "build",
+    "PowerShellNeedBuildMdproj": true,
+    "PowerShellScriptTimeOutInSeconds": 6000,
+    "PowerShellStepProgressUpdateIntervalInSeconds": 5,
+    "PowerShellUpdateMdproj": true,
+    "PowerShellUpdateNuget": true,
+    "PreservedFallbackCopyFileSearchPattern": [ "toc.md", "toc.yml" ],
+    "ProtectedBranchesFromDeletion": [
+      "live",
+      "master"
+    ],
+    "PublishingFallbackBranchMapForPullRequest": {
+    },
+    "PublishToDHSMaxBatchSize": 100,
+    "PublishToDHSParallelism": 16,
+    "QueueMessageInvisibleTimeForProcessingInSeconds": 7500,
+    "QueueMessageInvisibleTimeForRerunInSeconds": 10,
+    "QueueMapper": {
+      "build": [
+        {
+          "BuildType": "PullRequest",
+          "BuildAction": "Build"
+        },
+        {
+          "BuildType": "PullRequest",
+          "BuildAction": "Publish"
+        }
+      ],
+      "publish": [
+        {
+          "BuildType": "Commit",
+          "BuildAction": "Publish"
+        },
+        {
+          "BuildType": "Commit",
+          "BuildAction": "PublishTheme"
+        }
+      ],
+      "workflow": [
+        {
+          "BuildType": "Workflow",
+          "BuildAction": "Workflow"
+        }
+      ],
+      "delete": [
+        {
+          "BuildType": "Commit",
+          "BuildAction": "Delete"
+        },
+        {
+          "BuildType": "PullRequest",
+          "BuildAction": "Delete"
+        }
+      ],
+      "sync": [
+        {
+          "BuildType": "Sync",
+          "BuildAction": "Sync"
+        }
+      ],
+      "pdf": [
+        {
+          "BuildType": "Commit",
+          "BuildAction": "GeneratePdf"
+        }
+      ],
+      "provision": [
+        {
+          "BuildType": "Provision",
+          "BuildAction": "Provision"
+        }
+      ],
+      "create-repo": [
+        {
+          "BuildType": "Provision",
+          "BuildAction": "CreateRepository"
+        }
+      ],
+      "update-repo": [
+        {
+          "BuildType": "Provision",
+          "BuildAction": "UpdateRepository"
+        }
+      ],
+      "create-docsets": [
+        {
+          "BuildType": "Provision",
+          "BuildAction": "CreateDocsets"
+        }
+      ],
+      "update-docsets": [
+        {
+          "BuildType": "Provision",
+          "BuildAction": "UpdateDocsets"
+        }
+      ]
+    },
+    "RemoveResourceFilesInOutputPackage": true,
+    "ReportMessageDisplayCount": {
+      "ErrorDisplayCount": 1000,
+      "WarningDisplayCount": 1000
+    },
+    "ReportUnchangedFilesWithMoreWarnings": true,
+    "RepositoryTemplatesUrl": "http://ambientconfiguration.blob.core.windows.net/openpublishingportal/templates.sandbox.json",
+    "RepoUrlsForE2eTest": [
+      "https://github.com/Microsoft/openpublishing-test",
+      "https://github.com/herohua/openpublishing-test"
+    ],
+    "RepoUrlsToEnableLocalCache": [
+      "https://github.com/herohua/openpublishing-docs"
+    ],
+    "RepoUrlsToRenderOpDfm": [
+      "https://github.com/hellosnow/test-op",
+      "https://github.com/fenxu/fenxu_docs_internal_20161109"
+    ],
+    "RepoUrlToAccessTokenListMap": {
+      "https://github.com/herohua/openpublishing-docs" : [ "<SecretAmbientConfiguration:Gvdu9Bl8mYVXikCMHdn2kCJ3A+qAZD6Y5hhf0TjgdJ1PNWsE2TNxRxgkCGdHFTF6:SecretAmbientConfiguration>", "<SecretAmbientConfiguration:Q5/f3ffL0dDZK2lmat3y2mWmL66JL/g9t9Dmd+DuVYmYQ+ZWDAEbV+Ra7wKSpyBL:SecretAmbientConfiguration>", "<SecretAmbientConfiguration:Xb7X6EEy5RmUqjnN7LwTqDO3XtAvJ3BWVmx/aKBO9/ICsCWHl2uzp1i+EfpMFSDr:SecretAmbientConfiguration>" ]
+    },
+    "ResolveUserProfileByAccessToken": true,
+    "ResolveVsoRepoUserProfileUsingGitHub": true,
+    "RunCatsTestJob": true,
+    "SasExpirationTimeInMinutesForPackageDownloadInBlob": 44640,
+    "SasExpirationTimeInMinutesForRawLogInBlob": 44640,
+    "SasExpirationTimeInMinutesForFileMapsInBlob": 44640,
+    "SasExpirationTimeInMinutesForBuildConfigInBlob": 44640,
+    "ServiceAccountUserIdsInGitRepostiory": {
+        "GitHub": "14725744"
+    },
+    "ServiceBusSharedAccessKey": "<SecretAmbientConfiguration:Wirx/02cYQwrmSijQw2GQpN8C25NQQTANGZGZ953H9/zpcTnhJKdw+3QQO1+Xflr:SecretAmbientConfiguration>",
+    "SiteNamesToEnableBranchFallback": [
+        "Docs"
+    ],
+    "SiteNameToFriendlySiteNameMap": {
+        "MSDN": "MSDN",
+        "MSDN.Modern": "MSDN",
+        "VisualStudio": "Visual Studio",
+        "VS.Modern": "Visual Studio",
+        "TechNet": "TechNet",
+        "TechNet.Modern": "TechNet",
+        "Docs": "Microsoft Docs"
+    },
+    "SiteNameToUriMap": {
+        "MSDN": "ppe.msdn.microsoft.com",
+        "MSDNINT": "ppe.msdn.microsoft.com",
+        "VisualStudio": "www.vsallin.net",
+        "VisualStudioINT": "www.vsallin.net",
+        "TechNet": "ppe.technet.microsoft.com",
+        "TechNetINT": "ppe.technet.microsoft.com",
+        "Docs": "docspilot.azurewebsites.net",
+        "DocsINT": "docspilot.azurewebsites.net",
+        "dev.microsoft.com": "devmsft-sandbox.azurewebsites.net"
+    },
+    "SkipProcessingOutOfOrderMessage": true,
+    "SkipSourceUploadingWhenMessageProcessingIsSuccessful": true,
+    "SpecialOrgs": [
+        "MicrosoftDocs"
+    ],
+    "StorageAccessDeltaBackoffInSeconds": 30,
+    "StorageAccessRetryCount": 3,
+    "StorageConnectionString": "<KeyVaultConfiguration:StorageConnectionString:KeyVaultConfiguration>",
+    "SystemDefinedServiceAccountUserIdsByRepoType": {
+      "GitHub": [
+        "3e50895b-41ac-b93f-1678-eedeb87082e3"
+      ],
+      "Vso": []
+    },
+    "SystemDefinedServiceAccountUserIdsByRepoTypeForSync": {
+      "GitHub": [        
+        "58a7d2ca-93f8-32ad-0527-b90f048ba6b4",
+        "aa1c98a7-bb1c-2bd2-08c1-2b1c273c32fb",
+        "ffbd25d6-986a-cb01-de3c-434eb84693f9"
+      ],
+      "Vso": []
+    },
+    "TocChangeTriggerFullBuild": false,
+    "UpdateGlobalGitUserProfileCache": true,
+    "UrlDisplayCount": {
+        "CommentUrlDisplayCount": 50,
+        "EmailUrlDisplayCount": 3,
+        "HtmlReportUrlDisplayCount": 500
+    },
+    "UseAzureTableForAuthenticationDataStore": false,
+    "UseGitExeInsteadOfLibGit2Sharp": true,
+    "UseGlobalGitUserProfileCache": true,
+    "UseLocalizedThemes": true,
+    "UseSasForPackageDownloadInBlob": true,
+    "UseServiceAccount": true,
+    "UseSyncServiceAccount": true,
+    "UseSubmodules": false,
+    "VsoClientId": "63C11675-15AC-4CB5-99E1-255455C52166",
+    "VsoClientScopes": [
+      "vso.build_execute",
+      "vso.chat_manage",
+      "vso.code_manage",
+      "vso.test_write",
+      "vso.work_write"
+    ],
+    "VsoClientSecret": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Im9PdmN6NU1fN3AtSGpJS2xGWHo5M3VfVjBabyJ9.eyJjaWQiOiI2M2MxMTY3NS0xNWFjLTRjYjUtOTllMS0yNTU0NTVjNTIxNjYiLCJjc2kiOiI0NjY0N2UyMy0xODJkLTQ5MjQtYWU4OC03NTI2MzRlYjljNjAiLCJuYW1laWQiOiJiNWI0YWI4NC00ZGViLTQ5OTItYTlmMC01OWZiNDVmOTk3OTMiLCJpc3MiOiJhcHAudnNzcHMudmlzdWFsc3R1ZGlvLmNvbSIsImF1ZCI6ImFwcC52c3Nwcy52aXN1YWxzdHVkaW8uY29tIiwibmJmIjoxNDYxNjIwODE4LCJleHAiOjE2MTkzODcyMTh9.A_F3Gv0bJ1mrTAUZCXDyGwdGXbcLhk5AWOvcqCyIRipDPDYBuZYgYOuakLFRAUCcaxgMzsF_fkfHfl37Emnsw54z8eNw6_WcHCRNkyZbsk5KEpjwca3LcnSmcsT06TDivVjLTt_DLnRKqQOrJEYVLjkWmfO8P42gKOt_DeWmjHE5IVYBNdyjKPE4FP5P998IYjoWySi_L4-PvqkkojhRn_ajkqjX1W00OqxvW6YHhGM0eh5C8uWHPiDWarf1TIvQIDI4qhNiN2QYbsTe2vph4PQnBH-Z3IROdw3BB01T0puJywyePeXL7imuNCVzDTk_p_YUvxaKA-s2qa8fcx5uIw",
+    "VsoRestApiAuthorizationType": "Basic",
+    "WaitTimeForWorkerThreadCompleteInMilliseconds": 100000,
+    "WebAppMaxConnectionLimit": 24,
+    "XmlHostSiteName": [
+      "MSDN",
+      "VisualStudio",
+      "TechNet"
+    ],
+    "XrefServiceAccessKey": "<SecretAmbientConfiguration:ZjD/4k6YuXK2Y8v/W3DviWYaDzUFphoLxm4pLzLNTFWUno+byuUDGX8euheYrLsy:SecretAmbientConfiguration>",
+    "XrefServiceEndpoint": "https://xrefppe.docs.microsoft.com",
+    "XRefCosmosConnectionString": "<KeyVaultConfiguration:XRefCosmosConnectionString:KeyVaultConfiguration>",
+    "refresh_interval_milliseconds": 15000,
+    "RoleSpecificConfigurations": {
+    	"WorkerRole": {
+            "BuildWorkers": {
+                "SharedWorker_1": {
+                    "QueueNames": [ "publish", "build" ],
+                    "ThreadCount": 1,
+                    "ThreadCountByPriority": {
+                        "Default": 1,
+                        "Low": 0
+                    }
+                },
+                "WorkflowWorker_1": {
+                    "QueueName": "workflow",
+                    "ThreadCount": 8,
+                    "ThreadCountByPriority": {
+                        "Default": 8,
+                        "Low": 0
+                    }
+                }
+            }
+        },
+        "WorkerRole2": {
+            "BuildWorkers": {
+                "SharedWorker_1": {
+                    "QueueNames": [ "pdf", "sync" ],
+                    "ThreadCount": 1,
+                    "ThreadCountByPriority": {
+                        "Default": 1,
+                        "Low": 0
+                    }
+                },
+                "WorkflowWorker_1": {
+                    "QueueName": "workflow",
+                    "ThreadCount": 8,
+                    "ThreadCountByPriority": {
+                        "Default": 8,
+                        "Low": 0
+                    }
+                },
+                "DeleteWorker_1": {
+                    "QueueName": "delete",
+                    "ThreadCount": 2,
+                    "ThreadCountByPriority": {
+                        "Default": 2,
+                        "Low": 0
+                    }
+                },
+                "ProvisionWorker_1": {
+                    "QueueName": "provision",
+                    "ThreadCount": 4,
+                    "ThreadCountByPriority": {
+                        "Default": 4,
+                        "Low": 0
+                    }
+                },
+                "CreateRepoWorker_1": {
+                    "QueueName": "create-repo",
+                    "ThreadCount": 2,
+                    "ThreadCountByPriority": {
+                        "Default": 2,
+                        "Low": 0
+                    }
+                },
+                "UpdateRepoWorker_1": {
+                    "QueueName": "update-repo",
+                    "ThreadCount": 2,
+                    "ThreadCountByPriority": {
+                        "Default": 2,
+                        "Low": 0
+                    }
+                },
+                "CreateDocsetsWorker_1": {
+                    "QueueName": "create-docsets",
+                    "ThreadCount": 2,
+                    "ThreadCountByPriority": {
+                        "Default": 2,
+                        "Low": 0
+                    }
+                },
+                "UpdateDocsetsWorker_1": {
+                    "QueueName": "update-docsets",
+                    "ThreadCount": 2,
+                    "ThreadCountByPriority": {
+                        "Default": 2,
+                        "Low": 0
+                    }
+                }
+            }
+        }
+    }
+}
